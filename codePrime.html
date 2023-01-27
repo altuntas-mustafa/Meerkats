@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime</title>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin: 1vw;">
+        "use strict";  <br>
+        Object.defineProperty(exports, "__esModule", { value: true }); <br>
+        exports.primeFactors = exports.primeNumber = void 0;<br>
+        function primeNumber(number) {<br>
+            let check = 0;<br>
+            if (number < 2) {<br>
+                return 'Please return a number greater than 1';<br>
+            }<br>
+            for (let i = 2; i < number; i++) {<br>
+                if (number % i == 0) {<br>
+                    check += 1;<br>
+                }<br>
+            }<br>
+            if (check == 0) {<br>
+                return 'Prime Number';<br>
+            }<br>
+            else {<br>
+                return 'Number is not a prime number';<br>
+            }<br>
+        }<br>
+        exports.primeNumber = primeNumber;<br>
+        function primeFactors(number) {<br>
+            let numberArray = [];<br>
+            if (number == 1) { <br>
+                return numberArray;<br>
+            }<br>
+            if (primeNumber(number) == 'Prime Number') {<br>
+                numberArray.push(number);<br>
+                return numberArray;<br>
+            }<br>
+            else if (primeNumber(number) == 'Number is not a prime number') {<br>
+                // let factorNumber = number;<br>
+                for (let i = 2; i <= number; i++) {<br>
+                    if (number % i == 0) {<br>
+                        numberArray.push(i);<br>
+                        number /= i;<br>
+                        i = 1;<br>
+                    }<br>
+                }<br>
+                return numberArray;<br>
+            }<br>
+            return 'Please write a number greater than 1';<br>
+        }<br>
+        exports.primeFactors = primeFactors;<br>
+
+                </h1>
+            </div>
+   </body>
+</html>

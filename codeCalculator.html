@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin: 1vw;">
+            "use strict"; <br>
+            Object.defineProperty(exports, "__esModule", { value: true }); <br>
+            exports.calculator = void 0; <br>
+            function calculator(mathString) { <br>
+                const textRegex = /^[ 0-9 ]+[*+-/]{1}[ 0-9 ]+$/g; <br>
+                const numRegex = /^[0-9]+|[0-9]+$/g; <br>
+                let operator = mathString.match(/[*+-/]/); <br>
+                if (!textRegex.test(mathString)) { <br>
+                    return 'Not a valid expression. Please use 2 integer only.';<br>
+                }<br>
+                let numbers = mathString.match(numRegex).map(Number);<br>
+                let result = 0;<br>
+                if (numbers[1] === 0) {<br>
+                    return 'division to zero not possible';<br>
+                }<br>
+                operator[0] == '+' ? (result = numbers.reduce((acc, cur) => acc + cur)) : <br>
+                    operator[0] == '-' ? (result = numbers.reduce((acc, cur) => acc - cur)) : <br>
+                        operator[0] == '*' ? (result = numbers.reduce((acc, cur) => acc * cur)) : <br>
+                            operator[0] == '/' ? (result = numbers.reduce((acc, cur) => acc / cur)) : 'Error'; <br>
+                return result.toString(); <br>
+            } <br>
+            exports.calculator = calculator; <br>
+            
+        </h1>
+    </div>
+</body>
+</html>

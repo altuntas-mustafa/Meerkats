@@ -1,0 +1,31 @@
+"use strict";
+const answer2 = document.querySelector('.answerCalculator');
+const buttonCalculate = document.querySelector('.calculate');
+
+buttonCalculate.addEventListener("click" ,()=>{
+    const value = document.getElementById("calculator").value;
+    console.log(value)
+    answer2.innerHTML = `${ value } is ${calculator(value)}` ;
+})
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.calculator = void 0;
+function calculator(mathString) {
+    const textRegex = /^[ 0-9 ]+[*+-/]{1}[ 0-9 ]+$/g;
+    const numRegex = /^[0-9]+|[0-9]+$/g;
+    let operator = mathString.match(/[*+-/]/);
+    if (!textRegex.test(mathString)) {
+        return 'Not a valid expression. Please use 2 integer only.';
+    }
+    let numbers = mathString.match(numRegex).map(Number);
+    let result = 0;
+    if (numbers[1] === 0) {
+        return 'division to zero not possible';
+    }
+    operator[0] == '+' ? (result = numbers.reduce((acc, cur) => acc + cur)) :
+        operator[0] == '-' ? (result = numbers.reduce((acc, cur) => acc - cur)) :
+            operator[0] == '*' ? (result = numbers.reduce((acc, cur) => acc * cur)) :
+                operator[0] == '/' ? (result = numbers.reduce((acc, cur) => acc / cur)) : 'Error';
+    return result.toString();
+}
+exports.calculator = calculator;

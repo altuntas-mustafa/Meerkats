@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    font-size: xx-large;
+    margin-top: 3vw;
+    margin-right: 3vw;
+    margin-left: 3vw;
+    padding: 1vw;
+    width: 40%;
+    text-align: center;
+    border: 0.1vw dotted red;
+}
+.answerRoman {
+    color: darkred;
+}
+.answerFizzBuzz {
+    color: darkred;
+}
+.answerCalculator {
+    color: darkred;
+}
+.answerPrimeFactors {
+    color: darkred;
+}
+.mainContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+}
+  

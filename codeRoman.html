@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabic to Roman Numbers</title>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin: 1vw;">
+            <span style="color: red;"> export function romanNumeralConverter(arabicNumber: number): string { </span><br>
+               <span style="color: green;">if (arabicNumber < 1 || arabicNumber > 3000) { </span> <br>
+                  return "Please write a number between 1 and 3000"; <br>
+                } <br>
+                <span style="color: green;">if (arabicNumber % 1 != 0)  </span>{ <br>
+                    return "Please enter integer number"; <br>
+                } <br>
+               <span style="color: blue;"> const arabicArray = [...`${arabicNumber}`].map(Number).reverse(); </span> <br>
+                let romanString = ""; <br>
+                <span style="color: red;">const romanArray = arabicArray.forEach((item, index) => { </span><br>
+                <span style="color: brown;">  let [a, b, c] = digitToLetter(index).split(" "); </span><br>
+                <span style="color: orangered;"> romanString = converter(a,b,c,item) + romanString; </span><br>
+                }); <br>
+                return romanString; <br>
+              } <br>
+              
+              <span style="color: red;">function converter(a: string, b: string, c: string, digit: number): string { </span><br>
+                let romanArray = [ <br>
+                  "", <br>
+                  a,<br>
+                  a + a,<br>
+                  a + a + a,<br>
+                  a + b,<br>
+                  b,<br>
+                  b + a,<br>
+                  b + a + a,<br>
+                  b + a + a + a,<br>
+                  a + c,<br>
+                ];<br>
+                return romanArray[digit];<br>
+              }<br>
+              <span style="color: red;">function digitToLetter(romanIndex: number): string {</span><br>
+                let romanArray = ["I V X", "X L C", "C D M", "M M M"];<br>
+                return romanArray[romanIndex];<br>
+              }<br>
+        </h1>
+    </div>
+</body>
+</html>
